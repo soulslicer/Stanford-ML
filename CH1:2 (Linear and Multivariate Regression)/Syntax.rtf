@@ -1,0 +1,206 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\b\fs24 \cf0 Basic Operations
+\b0 \
+5+3\
+2^6\
+1==2 (false)\
+1~=2 (true)\
+xor(1,0)\
+1 && 0 (false)\
+1 || 0 (true)\
+a=pi\
+disp(sprintf('2 decimals: %0.2f', a))\
+\
+
+\b Matrix Operations
+\b0 \
+A = [1 2; 3 4; 5 6] = 	1     2\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0      				3     4\
+     				5     6     \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 size(A) = 3     2\
+size(A,1) = 3\
+v = [1;2;3]\
+v=1:0.1:2 = make v values from 1 to 2 with steps of 0.1 (row wise)\
+v=1:6 = Make v values from 1 to 6\
+2*ones(2,3) = 	2     2     2\
+     			2     2     2\
+randn(1,3) = n is for gaussian (row * column)\
+hist(matrix) = Plot histogram\
+eye(4) = Identity matrix of 4x4\
+length(A) = Can be used for vector\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 Data\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 load(\'91features.dat\'92)\
+who = show what is in mem\
+whos = more data\
+clear var\
+clearvars\
+save hello.mat v; = save variable\
+v=load hello.mat\
+save hello.txt v -ascii = Save as ASCII\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 Indexing\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 v = priceY(1:10) = Set v as the first 10 elements of priceY - careful it repeats like a texture\
+A(3,2) = Get data in 3rd row column 2\
+A(2,:) = Get all data in 2nd row\
+A(:,2) = Get all data in 2nd column\
+A([1 3],:) = Get all data in rows 1 and 3, get all columns\
+v =\
+\
+     1     1\
+     2     2\
+     3     3\
+v(:,2) = [10;11;12] = Append a column to the right of the column 2 of v\
+v =\
+\
+     1    10\
+     2    11\
+     3    12\
+v=[v, [100;101;102]] = Append a column to v itself\
+v =\
+\
+     1    10   100\
+     2    11   101\
+     3    12   102\
+v(:) = Make all in one row\
+\
+ans =\
+\
+     1\
+     2\
+     3\
+    10..\
+[v v] = Combine matrices put them beside each other\
+[v;v] = Put them on top of each other\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 Computing\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 A*C = Multiplication ((3)*1) * (1*(3)) 3*3 matrix\
+A.*C = Take each element of A and multiply corrsp element of B\
+exp(A) = Get exponential\
+abs(A) = Get absolute\
+-A = Get negative of A\
+A + ones(length(A),1) = Add a bunch of 1\'92s to all of A quickly\
+A\'92 = Transpose\
+max(A) = Get maximum value\
+[val, ind] = max(v) = Get index as well\
+v < 10 = Element wise comparison, gives a boolean matrix\
+find(v <3) = Give a column of values where v is less than 3\
+v =\
+\
+     1    10   100\
+     2    11   101\
+     3    12   102\
+[r, c] = find(v > 10)\
+r =\
+\
+     2\
+     3\
+     1\
+     2\
+     3\
+c =\
+\
+     2\
+     2\
+     3\
+     3\
+     3\
+sum(A)\
+floor(A)\
+ceil(A)\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 Plotting\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 (\'97Plot multiple \'97)
+\b \
+
+\b0 t=[0:0.01:0.98]\
+y1 = sin(2*pi*4*t)\
+y2 = cos(2*pi*4*t)\
+plot(t,y1)\
+>> plot(t,y2)\
+>> plot(t,y1);\
+>> hold on;\
+>> plot(t,y2);\
+>> plot(t,y2,'r');\
+>> xlabel('time')\
+>> ylabel('value')\
+>> legend('sin','cos')\
+>> title('my plot')\
+>> print -dpng 'myPlot.png'\
+(\'97Figure \'97)\
+>> figure(1); plot(t,y1)\
+>> figure(2); plot(t,y2)\
+(\'97 Subplot \'97)\
+subplot(1,2,1);\
+plot(t,y1)\
+subplot(1,2,2);\
+plot(t,y2);\
+axis([0.5 1 -1 1])\
+clf;\
+imagesc(magic(15))\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b \cf0 Control Statements\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\b0 \cf0 (\'97For loop \'97)
+\b \
+
+\b0 v=zeros(10,1)
+\b \
+
+\b0 for i=1:10,\
+	v(i)=2^i;\
+end;\
+(\'97While loop \'97)\
+while i<=5,\
+	v(i)=100;\
+	i=i+1;\
+end;\
+(\'97Break loop \'97)\
+while true,\
+	if i==6,\
+		break;\
+	end;\
+end;\
+(\'97If statement \'97)\
+if v(1)==1,\
+	disp(\'911\'92);\
+elseif v(1)==2,\
+	disp(\'912\'92);\
+else\
+	disp(\'913\'92);\
+end;\
+(\'97Function\'97)\
+function y = squareThisNumber(x)\
+y=x^2\
+\'97\'97\
+function [y1,y2] = SquareAndCube(x)\
+y1=x^2\
+y2=x^3\
+[a,b] = squareAndCube(5);\
+}
